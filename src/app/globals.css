@@ -1,26 +1,180 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/* ============================================
+   FITTY — Kinetic Precision Design System
+   Tailwind CSS v4 Theme Configuration
+   ============================================ */
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* ── Surface Hierarchy ── */
+  --color-surface: #f9f9f9;
+  --color-surface-dim: #dadada;
+  --color-surface-bright: #f9f9f9;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f3f3f3;
+  --color-surface-container: #eeeeee;
+  --color-surface-container-high: #e8e8e8;
+  --color-surface-container-highest: #e2e2e2;
+
+  /* ── Primary ── */
+  --color-primary: #000000;
+  --color-on-primary: #e2e2e2;
+  --color-primary-container: #3b3b3b;
+  --color-on-primary-container: #ffffff;
+  --color-primary-fixed: #5e5e5e;
+  --color-primary-fixed-dim: #474747;
+  --color-on-primary-fixed: #ffffff;
+
+  /* ── Secondary ── */
+  --color-secondary: #5f5e5e;
+  --color-on-secondary: #ffffff;
+  --color-secondary-container: #d6d4d3;
+  --color-on-secondary-container: #1b1c1c;
+  --color-secondary-fixed: #c8c6c6;
+
+  /* ── Tertiary ── */
+  --color-tertiary: #3b3b3b;
+  --color-on-tertiary: #e2e2e2;
+  --color-tertiary-container: #747474;
+  --color-on-tertiary-container: #ffffff;
+  --color-tertiary-fixed: #5e5e5e;
+  --color-tertiary-fixed-dim: #474747;
+
+  /* ── Error ── */
+  --color-error: #ba1a1a;
+  --color-on-error: #ffffff;
+  --color-error-container: #ffdad6;
+  --color-on-error-container: #410002;
+
+  /* ── Neutral / Outline ── */
+  --color-outline: #777777;
+  --color-outline-variant: #c6c6c6;
+  --color-on-surface: #1b1b1b;
+  --color-on-surface-variant: #474747;
+  --color-on-background: #1b1b1b;
+  --color-background: #f9f9f9;
+  --color-inverse-surface: #303030;
+  --color-inverse-on-surface: #f1f1f1;
+  --color-inverse-primary: #c6c6c6;
+  --color-surface-tint: #5e5e5e;
+  --color-surface-variant: #e2e2e2;
+
+  /* ── Typography ── */
+  --font-headline: "Space Grotesk", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --font-label: "Inter", sans-serif;
+
+  /* ── Border Radius ── */
+  --radius-sm: 0.125rem;
+  --radius-md: 0.25rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-2xl: 1rem;
+  --radius-3xl: 1.5rem;
+  --radius-full: 9999px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Google Fonts loaded via next/font/google and <head> link tag */
+
+/* ============================================
+   Base Styles
+   ============================================ */
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body);
+  background-color: var(--color-surface);
+  color: var(--color-on-surface);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background-color: var(--color-primary);
+  color: var(--color-on-primary);
+}
+
+/* ============================================
+   Material Symbols
+   ============================================ */
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+  vertical-align: middle;
+  line-height: 1;
+}
+
+/* ============================================
+   Utility Classes
+   ============================================ */
+.glass-hud {
+  background: rgba(243, 243, 243, 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.kinetic-gradient {
+  background: linear-gradient(135deg, #000000 0%, #3b3b3b 100%);
+}
+
+.bg-grid-pattern {
+  background-image: radial-gradient(circle, #e2e2e2 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.font-headline {
+  font-family: var(--font-headline);
+}
+
+.font-body {
+  font-family: var(--font-body);
+}
+
+/* ============================================
+   Animations
+   ============================================ */
+@keyframes float-pulse {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(0, 0, 0, 0); }
+  50% { box-shadow: 0 0 20px 4px rgba(0, 0, 0, 0.08); }
+}
+
+@keyframes data-flicker {
+  0%, 90%, 100% { opacity: 1; }
+  95% { opacity: 0.6; }
+}
+
+.animate-float-pulse {
+  animation: float-pulse 4s ease-in-out infinite;
+}
+
+.animate-glow-pulse {
+  animation: glow-pulse 3s ease-in-out infinite;
+}
+
+.animate-data-flicker {
+  animation: data-flicker 5s ease-in-out infinite;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-surface-container-low);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-outline-variant);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-outline);
 }
