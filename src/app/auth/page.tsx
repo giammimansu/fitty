@@ -82,22 +82,7 @@ export default function AuthPage() {
                   <div className="space-y-3 mb-8">
                     <motion.button
                       whileTap={{ scale: 0.98 }}
-                      className="w-full flex items-center justify-center gap-3 py-3 px-4 bg-primary text-on-primary rounded-md font-[var(--font-headline)] text-sm font-bold tracking-tight hover:opacity-90 transition-opacity cursor-pointer"
-                    >
-                      <svg
-                        className="w-5 h-5"
-                        viewBox="0 0 24 24"
-                        fill="currentColor"
-                      >
-                        <path d="M18.71 19.5C17.88 20.74 17 21.95 15.66 21.97C14.32 21.99 13.89 21.18 12.37 21.18C10.84 21.18 10.37 21.95 9.1 21.99C7.79 22.03 6.8 20.68 5.96 19.47C4.25 16.99 2.97 12.5 4.7 9.43C5.55 7.91 7.13 6.93 8.85 6.91C10.14 6.89 11.36 7.78 12.14 7.78C12.92 7.78 14.38 6.71 15.92 6.87C16.54 6.9 18.32 7.12 19.42 8.77C19.32 8.83 17.17 10.05 17.19 12.63C17.22 15.72 19.92 16.73 19.95 16.74C19.92 16.82 19.48 18.35 18.71 19.5ZM13 3.5C13.73 2.67 14.94 2.04 15.94 2C16.07 3.17 15.6 4.35 14.9 5.19C14.21 6.04 13.07 6.7 11.95 6.61C11.8 5.46 12.36 4.26 13 3.5Z" />
-                      </svg>
-                      {activeTab === "login"
-                        ? "CONTINUA CON APPLE"
-                        : "REGISTRATI CON APPLE"}
-                    </motion.button>
-
-                    <motion.button
-                      whileTap={{ scale: 0.98 }}
+                      onClick={() => window.location.href = "http://localhost:8000/login"}
                       className="w-full flex items-center justify-center gap-3 py-3 px-4 bg-surface-container-highest text-primary border border-outline-variant/20 rounded-md font-[var(--font-headline)] text-sm font-bold tracking-tight hover:bg-surface-container transition-colors cursor-pointer"
                     >
                       <svg
